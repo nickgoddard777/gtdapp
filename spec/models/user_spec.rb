@@ -7,8 +7,8 @@ describe User do
   before(:each) do
     @attr = {
       :name => "Example User",
-      :email = "user@example.com",
-      :password = "foobar",
+      :email => "user@example.com",
+      :password => "foobar",
       :password_confirmation => "foobar"
     }
   end
@@ -34,7 +34,7 @@ describe User do
     addresses = %w[user@foo,com user_at_foo.org example.user@foo.]
     addresses.each do |address|
       invalid_email_user = User.new(@attr.merge(:email => address))
-      invalid_email_user.should be_valid
+      invalid_email_user.should_not be_valid
     end
   end
   
